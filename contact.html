@@ -228,7 +228,8 @@
             <h3>Trimite-ne un mesaj</h3>
             <p>Ai o întrebare, o problemă sau vrei să te implici în proiectele noastre? Completează formularul și te contactăm noi.</p>
             
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div id="form-status" style="display: none; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: 500; text-align: center;"></div>
+            <form action="contact.php" method="POST">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nume">Nume și Prenume</label>
@@ -346,6 +347,25 @@
                 }
             });
         });
+        // Logica pentru afișarea mesajului de succes/eroare
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            const statusDiv = document.getElementById('form-status');
+
+            if (status === 'success') {
+                statusDiv.style.display = 'block';
+                statusDiv.style.backgroundColor = '#e8f5e9'; // Verde deschis
+                statusDiv.style.color = '#2e7d32'; // Verde închis
+                statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> Mesajul tău a fost trimis cu succes! Te vom contacta curând.';
+                
+                // Curățăm URL-ul ca să arate curat (fără ?status=success)
+                window.history.replaceState(null, null, window.location.pathname);
+            } else if (status === 'error') {
+                statusDiv.style.display = 'block';
+                statusDiv.style.backgroundColor = '#ffebee'; // Roșu deschis
+                statusDiv.style.color = '#c62828'; // Roșu închis
+                statusDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> A apărut o eroare. Te rugăm să încerci din nou sau să ne scrii direct pe mail.';
+            }
     </script>
 </body>
 </html>
