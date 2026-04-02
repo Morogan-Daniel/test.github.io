@@ -205,58 +205,56 @@
                 </div>
             </div>
 
-            <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/place/Centrul+de+Consiliere+%C5%9Fi+Orientare+%C3%AEn+Carier%C4%83+USAMV+Bucure%C5%9Fti/@44.4718634,26.062769,18.5z/data=!4m6!3m5!1s0x40b20388aa9b8261:0xffea63b63ff51949!8m2!3d44.4722026!4d26.0617697!16s%2Fg%2F11g07tzbb_?hl=ro&entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-wrapper" style="height: 350px;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.164844390554!2d26.068305076632497!3d44.47072290000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1fd7f9bb84b53%3A0x1df3cf7d2f7fa66b!2sAsocia%C8%9Bia%20Studen%C8%9Bilor%20din%20Universitatea%20de%20%C8%98tiin%C8%9Be%20Agronomice%20%C8%99i%20Medicin%C4%83%20Veterinar%C4%83%20din%20Bucure%C8%99ti!5e0!3m2!1sro!2sro!4v1711634567890!5m2!1sro!2sro" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
 
         <div class="contact-form-wrapper">
             <h3>Trimite-ne un mesaj</h3>
-            <p>Ai o problemă la facultate, vrei să te înscrii ca voluntar sau ai o idee de proiect? Completează formularul de mai jos și un membru al asociației te va contacta.</p>
+            <p>Ai o întrebare, o problemă sau vrei să te implici în proiectele noastre? Completează formularul și te contactăm noi.</p>
             
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="nume">Numele și Prenumele</label>
-                        <input type="text" id="nume" name="nume" class="form-control" placeholder="Popescu Andrei" required>
+                        <label for="nume">Nume și Prenume</label>
+                        <input type="text" id="nume" name="nume" class="form-control" placeholder="Popescu Ion" required>
                     </div>
                     <div class="form-group">
-                        <label for="telefon">Număr de Telefon (Opțional)</label>
-                        <input type="tel" id="telefon" name="telefon" class="form-control" placeholder="07xx xxx xxx">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Adresa de Email (Instituțională sau Personală)</label>
+                        <label for="email">Email</label>
                         <input type="email" id="email" name="email" class="form-control" placeholder="student@usamv.ro" required>
                     </div>
                 </div>
 
                 <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="facultate">Sunt student/ă la:</label>
+                    <label for="facultate">Facultatea ta</label>
                     <select id="facultate" name="facultate" class="form-control" required>
                         <option value="" disabled selected>Alege facultatea...</option>
-                        <option value="Agricultura">Facultatea de Agricultură</option>
-                        <option value="Horticultura">Facultatea de Horticultură</option>
-                        <option value="Zootehnie">Facultatea de Ingineria și Gestiunea Producțiilor Animaliere</option>
-                        <option value="Medicina_Veterinara">Facultatea de Medicină Veterinară</option>
-                        <option value="FIFIM">Facultatea de Îmbunătățiri Funciare și Ingineria Mediului</option>
-                        <option value="Biotehnologii">Facultatea de Biotehnologii</option>
-                        <option value="Management">Facultatea de Management și Dezvoltare Rurală</option>
-                        <option value="Altul">Nu sunt student / Altele</option>
+                        <option value="Agricultura">Agricultură</option>
+                        <option value="Horticultura">Horticultură</option>
+                        <option value="Zootehnie">I.G.P.A.</option>
+                        <option value="Medicina_Veterinara">Medicină Veterinară</option>
+                        <option value="FIFIM">F.I.F.I.M.</option>
+                        <option value="Biotehnologii">Biotehnologii</option>
+                        <option value="Management">Management și Dezvoltare Rurală</option>
                     </select>
                 </div>
 
                 <div class="form-group" style="margin-bottom: 30px;">
                     <label for="mesaj">Mesajul tău</label>
-                    <textarea id="mesaj" name="mesaj" class="form-control" placeholder="Scrie aici mesajul tău..." required></textarea>
+                    <textarea id="mesaj" name="mesaj" class="form-control" placeholder="Cum te putem ajuta?" required></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 15px;">Trimite Mesajul <i class="fas fa-paper-plane" style="margin-left: 8px;"></i></button>
+                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 15px;">
+                    Trimite Mesajul <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+                </button>
             </form>
         </div>
-
     </section>
 
     <footer class="site-footer">
