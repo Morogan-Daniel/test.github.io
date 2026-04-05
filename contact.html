@@ -27,7 +27,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+        html, body { scroll-behavior: smooth; scroll-padding-top: 100px; top: 0px !important; }
         body { font-family: 'Inter', sans-serif; color: var(--text-dark); background-color: var(--surface-light); line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
         a { text-decoration: none; color: inherit; }
@@ -86,8 +86,13 @@
         .usamv-menu .dropdown-menu li:hover > .dropdown-menu { transform: translateX(0); }
 
         .usamv-tools { display: flex; align-items: center; gap: 15px; }
-        .lang-flag img { height: 14px; opacity: 0.6; transition: 0.3s; cursor: pointer; }
+        .lang-flag img { height: 14px; opacity: 0.4; transition: 0.3s; cursor: pointer; }
         .lang-flag:hover img, .lang-flag.active img { opacity: 1; }
+
+        /* Ascundere Widget Google Translate */
+        .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        #google_translate_element { display: none !important; }
 
         /* ================= Header Asociație ================= */
         .assoc-header { background-color: var(--bg-white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
@@ -295,8 +300,9 @@
             </nav>
 
             <div class="usamv-tools">
-                <a href="#" class="lang-flag"><img src="https://usamv.ro/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="EN"></a>
-                <a href="#" class="lang-flag active"><img src="https://usamv.ro/wp-content/plugins/sitepress-multilingual-cms/res/flags/ro.png" alt="RO"></a>
+                <a onclick="schimbaLimba('en')" data-lang="en" class="lang-flag"><img src="https://usamv.ro/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="EN"></a>
+                <a onclick="schimbaLimba('fr')" data-lang="fr" class="lang-flag"><img src="https://usamv.ro/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="FR"></a>
+                <a onclick="schimbaLimba('ro')" data-lang="ro" class="lang-flag active"><img src="https://usamv.ro/wp-content/plugins/sitepress-multilingual-cms/res/flags/ro.png" alt="RO"></a>
                 <div style="color: var(--primary-green); cursor: pointer; margin-left: 10px;"><i class="fas fa-search"></i></div>
             </div>
         </div>
@@ -460,8 +466,44 @@
         </div>
     </footer>
 
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        // Funcția de inițializare Google Translate
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'ro', autoDisplay: false}, 'google_translate_element');
+        }
+
+        // Funcția declanșată la apăsarea steagurilor
+        function schimbaLimba(lang) {
+            if (lang === 'ro') {
+                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + location.hostname + "; path=/;";
+            } else {
+                document.cookie = "googtrans=/ro/" + lang + "; path=/";
+                document.cookie = "googtrans=/ro/" + lang + "; domain=" + location.hostname + "; path=/";
+            }
+            window.location.reload();
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            
+            // Verificare limbă activă din cookie pentru a seta steagul corect
+            const match = document.cookie.match(/(?:^|;)\s*googtrans=([^;]*)/);
+            let currentLang = 'ro';
+            if (match && match[1]) {
+                currentLang = match[1].split('/').pop();
+            }
+            document.querySelectorAll('.lang-flag').forEach(flag => {
+                flag.classList.remove('active');
+                if (flag.getAttribute('data-lang') === currentLang) {
+                    flag.classList.add('active');
+                }
+            });
+
             const globalHeader = document.getElementById('globalHeader');
             let lastScrollY = window.scrollY;
 
@@ -489,25 +531,26 @@
                 }
             });
         });
+        
         // Logica pentru afișarea mesajului de succes/eroare
-            const urlParams = new URLSearchParams(window.location.search);
-            const status = urlParams.get('status');
-            const statusDiv = document.getElementById('form-status');
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        const statusDiv = document.getElementById('form-status');
 
-            if (status === 'success') {
-                statusDiv.style.display = 'block';
-                statusDiv.style.backgroundColor = '#e8f5e9'; // Verde deschis
-                statusDiv.style.color = '#2e7d32'; // Verde închis
-                statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> Mesajul tău a fost trimis cu succes! Te vom contacta curând.';
-                
-                // Curățăm URL-ul ca să arate curat (fără ?status=success)
-                window.history.replaceState(null, null, window.location.pathname);
-            } else if (status === 'error') {
-                statusDiv.style.display = 'block';
-                statusDiv.style.backgroundColor = '#ffebee'; // Roșu deschis
-                statusDiv.style.color = '#c62828'; // Roșu închis
-                statusDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> A apărut o eroare. Te rugăm să încerci din nou sau să ne scrii direct pe mail.';
-            }
+        if (status === 'success') {
+            statusDiv.style.display = 'block';
+            statusDiv.style.backgroundColor = '#e8f5e9'; // Verde deschis
+            statusDiv.style.color = '#2e7d32'; // Verde închis
+            statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> Mesajul tău a fost trimis cu succes! Te vom contacta curând.';
+            
+            // Curățăm URL-ul ca să arate curat
+            window.history.replaceState(null, null, window.location.pathname);
+        } else if (status === 'error') {
+            statusDiv.style.display = 'block';
+            statusDiv.style.backgroundColor = '#ffebee'; // Roșu deschis
+            statusDiv.style.color = '#c62828'; // Roșu închis
+            statusDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> A apărut o eroare. Te rugăm să încerci din nou sau să ne scrii direct pe mail.';
+        }
     </script>
 </body>
 </html>
