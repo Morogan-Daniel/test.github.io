@@ -54,15 +54,15 @@
             text-transform: uppercase; color: var(--text-dark); transition: 0.3s;
             padding: 10px 0; position: relative; display: flex; align-items: center; gap: 5px; cursor: pointer;
         }
-        .usamv-menu > ul > li > a:hover { color: var(--usamv-green); }
-        .usamv-menu > ul > li > a.active { color: var(--usamv-green); border-bottom: 2px solid var(--usamv-green); }
+        .usamv-menu > ul > li > a:hover { color: var(--primary-green); }
+        .usamv-menu > ul > li > a.active { color: var(--primary-green); border-bottom: 2px solid var(--primary-green); }
         
         /* Dropdown Nivel 1 */
         .usamv-menu .dropdown-menu {
             position: absolute; top: 100%; left: 0; background: var(--bg-white);
             min-width: 260px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-radius: 4px;
             opacity: 0; visibility: hidden; transition: all 0.3s ease;
-            transform: translateY(15px); padding: 10px 0; display: block; border-top: 3px solid var(--usamv-green);
+            transform: translateY(15px); padding: 10px 0; display: block; border-top: 3px solid var(--primary-green);
         }
         .usamv-menu li:hover > .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         
@@ -73,7 +73,7 @@
             justify-content: space-between; align-items: center; transition: all 0.2s; font-weight: 400;
         }
         .usamv-menu .dropdown-menu li:last-child > a { border-bottom: none; }
-        .usamv-menu .dropdown-menu a:hover { background: var(--surface-light); color: var(--usamv-green); padding-left: 25px; }
+        .usamv-menu .dropdown-menu a:hover { background: var(--surface-light); color: var(--primary-green); padding-left: 25px; }
 
         /* Dropdown Nivel 2 */
         .usamv-menu .has-submenu > a::after {
@@ -81,7 +81,7 @@
             font-size: 10px; color: #999;
         }
         .usamv-menu .dropdown-menu .dropdown-menu {
-            top: -3px; left: 100%; transform: translateX(15px); border-top: 3px solid var(--usamv-green);
+            top: -3px; left: 100%; transform: translateX(15px); border-top: 3px solid var(--primary-green);
         }
         .usamv-menu .dropdown-menu li:hover > .dropdown-menu { transform: translateX(0); }
 
