@@ -34,13 +34,57 @@
         ul { list-style: none; }
 
         /* ================= Header USAMV ================= */
-        .usamv-header-container { background: var(--bg-white); width: 100%; height: 80px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s ease-in-out; }
-        .usamv-inner-wrapper { width: 100%; max-width: 1400px; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; }
+        .usamv-header-container {
+            background: var(--bg-white); width: 100%; height: 80px; display: flex;
+            align-items: center; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease-in-out; position: relative; z-index: 2000;
+        }
+        .usamv-inner-wrapper {
+            width: 100%; max-width: 1400px; display: flex; align-items: center;
+            justify-content: space-between; padding: 0 5%; position: relative;
+        }
         .usamv-logo img { height: 50px; display: block; }
-        .usamv-menu ul { display: flex; gap: 25px; align-items: center; }
-        .usamv-menu a { font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 500; text-transform: uppercase; color: var(--text-dark); transition: 0.3s; padding: 10px 0; position: relative; }
-        .usamv-menu a:hover { color: var(--usamv-green); }
-        .usamv-menu a.active { color: var(--usamv-green); border-bottom: 2px solid var(--usamv-green); }
+        
+        /* Dropdown Menus Meniu USAMV */
+        .usamv-menu { position: relative; z-index: 2000; }
+        .usamv-menu ul { display: flex; gap: 25px; align-items: center; margin: 0; padding: 0; list-style: none; }
+        .usamv-menu li { position: relative; }
+        .usamv-menu > ul > li > a {
+            font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 500;
+            text-transform: uppercase; color: var(--text-dark); transition: 0.3s;
+            padding: 10px 0; position: relative; display: flex; align-items: center; gap: 5px; cursor: pointer;
+        }
+        .usamv-menu > ul > li > a:hover { color: var(--usamv-green); }
+        .usamv-menu > ul > li > a.active { color: var(--usamv-green); border-bottom: 2px solid var(--usamv-green); }
+        
+        /* Dropdown Nivel 1 */
+        .usamv-menu .dropdown-menu {
+            position: absolute; top: 100%; left: 0; background: var(--bg-white);
+            min-width: 260px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-radius: 4px;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+            transform: translateY(15px); padding: 10px 0; display: block; border-top: 3px solid var(--usamv-green);
+        }
+        .usamv-menu li:hover > .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        
+        .usamv-menu .dropdown-menu li { width: 100%; display: block; }
+        .usamv-menu .dropdown-menu a {
+            padding: 12px 20px; font-size: 13px; font-family: 'Inter', sans-serif; text-transform: none; 
+            color: var(--text-dark); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; 
+            justify-content: space-between; align-items: center; transition: all 0.2s; font-weight: 400;
+        }
+        .usamv-menu .dropdown-menu li:last-child > a { border-bottom: none; }
+        .usamv-menu .dropdown-menu a:hover { background: var(--surface-light); color: var(--usamv-green); padding-left: 25px; }
+
+        /* Dropdown Nivel 2 */
+        .usamv-menu .has-submenu > a::after {
+            content: '\f054'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            font-size: 10px; color: #999;
+        }
+        .usamv-menu .dropdown-menu .dropdown-menu {
+            top: -3px; left: 100%; transform: translateX(15px); border-top: 3px solid var(--usamv-green);
+        }
+        .usamv-menu .dropdown-menu li:hover > .dropdown-menu { transform: translateX(0); }
+
         .usamv-tools { display: flex; align-items: center; gap: 15px; }
         .lang-flag img { height: 14px; opacity: 0.6; transition: 0.3s; cursor: pointer; }
         .lang-flag:hover img, .lang-flag.active img { opacity: 1; }
