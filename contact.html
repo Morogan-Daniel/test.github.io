@@ -377,11 +377,20 @@
             <p>Ai o întrebare, o problemă sau vrei să te implici în proiectele noastre? Completează formularul și te contactăm noi.</p>
             
             <div id="form-status" style="display: none; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: 500; text-align: center;"></div>
-            <form action="contact.php" method="POST">
+            
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="a7fea96a-8ca3-44fc-a934-4c202eb955a9">
+                
+                <input type="hidden" name="redirect" value="https://morogan-daniel.github.io/test.github.io/contact.html?status=success">
+                
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                
+                <input type="hidden" name="subject" value="Mesaj nou de pe site-ul AS-USAMV">
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nume">Nume și Prenume</label>
-                        <input type="text" id="nume" name="nume" class="form-control" placeholder="Popescu Ion" required>
+                        <input type="text" id="nume" name="name" class="form-control" placeholder="Popescu Ion" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -391,7 +400,7 @@
 
                 <div class="form-group" style="margin-bottom: 20px;">
                     <label for="facultate">Facultatea ta</label>
-                    <select id="facultate" name="facultate" class="form-control" required>
+                    <select id="facultate" name="Facultate" class="form-control" required>
                         <option value="" disabled selected>Alege facultatea...</option>
                         <option value="Agricultura">Agricultură</option>
                         <option value="Horticultura">Horticultură</option>
@@ -405,14 +414,14 @@
 
                 <div class="form-group" style="margin-bottom: 30px;">
                     <label for="mesaj">Mesajul tău</label>
-                    <textarea id="mesaj" name="mesaj" class="form-control" placeholder="Cum te putem ajuta?" required></textarea>
+                    <textarea id="mesaj" name="message" class="form-control" placeholder="Cum te putem ajuta?" required></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 15px;">
                     Trimite Mesajul <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
                 </button>
             </form>
-        </div>
+            </div>
     </section>
 
     <footer id="contact" class="site-footer">
