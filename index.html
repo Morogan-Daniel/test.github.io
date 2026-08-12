@@ -235,6 +235,79 @@
         .footer-col ul li a:hover { color: var(--accent-gold); }
         .footer-bottom { text-align: center; color: #8A9A91; font-size: 0.85rem; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px;}
 
+                /* ================= Documente ================= */
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .doc-card {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 25px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid var(--surface-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .doc-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-color: var(--accent-gold);
+        }
+        
+        .doc-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: var(--surface-light);
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .doc-card:hover .doc-icon {
+            background-color: var(--primary-green);
+            color: var(--accent-gold);
+        }
+        
+        .doc-content h4 {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .doc-content p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        .doc-action {
+            margin-left: auto;
+            color: #ccc;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .doc-card:hover .doc-action {
+            color: var(--accent-gold);
+        }
+
+
         /* ================= RESPONSIVITATE ================= */
         @media (max-width: 1024px) {
             .usamv-menu { display: none; }
@@ -612,6 +685,71 @@
         </div>
     </section>
 
+    <section id="documente" class="section">
+        <div class="section-header">
+            <h2>Regulamente și Documente</h2>
+            <p>Informațiile și actele esențiale de care ai nevoie pe parcursul anilor de studiu.</p>
+        </div>
+        
+        <div class="docs-grid">
+            <!-- Document 1 -->
+            <a href="link-catre-regulament-burse.pdf" target="_blank" class="doc-card">
+                <div class="doc-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="doc-content">
+                    <h4>Regulament Burse</h4>
+                    <p>Criterii de acordare, medii și acte necesare pentru dosarul social.</p>
+                </div>
+                <div class="doc-action">
+                    <i class="fas fa-download"></i>
+                </div>
+            </a>
+
+            <!-- Document 2 -->
+            <a href="link-catre-regulament-camine.pdf" target="_blank" class="doc-card">
+                <div class="doc-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="doc-content">
+                    <h4>Regulament Cămine</h4>
+                    <p>Reguli de cazare, drepturi și obligații în campusul studențesc.</p>
+                </div>
+                <div class="doc-action">
+                    <i class="fas fa-download"></i>
+                </div>
+            </a>
+
+            <!-- Document 3 -->
+            <a href="link-catre-statutul-studentului.pdf" target="_blank" class="doc-card">
+                <div class="doc-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="doc-content">
+                    <h4>Codul Drepturilor Studentului</h4>
+                    <p>Tot ce trebuie să știi despre drepturile și obligațiile tale la USAMV.</p>
+                </div>
+                <div class="doc-action">
+                    <i class="fas fa-download"></i>
+                </div>
+            </a>
+
+            <!-- Document 4 -->
+            <a href="link-catre-statut-asociatie.pdf" target="_blank" class="doc-card">
+                <div class="doc-icon">
+                    <i class="fas fa-file-signature"></i>
+                </div>
+                <div class="doc-content">
+                    <h4>Statutul AS-USAMV</h4>
+                    <p>Modul de organizare și funcționare a asociației noastre.</p>
+                </div>
+                <div class="doc-action">
+                    <i class="fas fa-download"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
     <section id="proiecte" class="section bento-section">
         <div class="section-header">
             <h2>Proiectele Noastre</h2>
@@ -626,34 +764,34 @@
             
             <div class="bento-box event-bento">
                 <div class="event-date-mini">
-                    <span>22</span>
-                    <small>Apr</small>
+                    <span>DATE</span>
+                    <small>TBA</small>
                 </div>
                 <div class="event-details-mini">
-                    <h4>USAMV Jobs</h4>
-                    <p>Interacțiune directă studenți-angajatori! Găsește jobul, internship-ul sau programul de voluntariat potrivit pentru tine.</p>
+                    <h4>TBA</h4>
+                    <p>To be anounced...</p>
                 </div>
             </div>
 
             <div class="bento-box event-bento">
                 <div class="event-date-mini">
-                    <span>7-10</span>
-                    <small>Mai</small>
+                    <span>DATA</span>
+                    <small>TBA</small>
                 </div>
                 <div class="event-details-mini">
-                    <h4>Agronomiada</h4>
-                    <p>Marea competiție sportivă și științifică ce reunește studenții agronomi din România și Republica Moldova.</p>
+                    <h4>TBA</h4>
+                    <p>To be anounced</p>
                 </div>
             </div>
 
             <div class="bento-box event-bento">
                 <div class="event-date-mini">
-                    <span>17</span>
-                    <small>Mai</small>
+                    <span>DATE</span>
+                    <small>TBA</small>
                 </div>
                 <div class="event-details-mini">
-                    <h4>Gala AS-USAMV</h4>
-                    <p>Sărbătorim prima gală aniversară a Asociației Studenților USAMV București. Vino să celebrăm reușitele împreună!</p>
+                    <h4>TBA</h4>
+                    <p>To be anounced...</p>
                 </div>
             </div>
         </div>
