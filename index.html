@@ -235,15 +235,15 @@
         .footer-col ul li a:hover { color: var(--accent-gold); }
         .footer-bottom { text-align: center; color: #8A9A91; font-size: 0.85rem; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px;}
 
-                /* ================= Documente ================= */
+        /* ================= Documente ================= */
         .docs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
+            grid-template-columns: repeat(2, 1fr); /* Forțează exact 2 coloane mereu */
+            gap: 24px;
+            max-width: 900px; /* Lățime mai mică pentru a ține cardurile compacte */
             margin: 0 auto;
         }
-        
+
         .doc-card {
             background-color: var(--bg-white);
             border-radius: 12px;
@@ -329,7 +329,12 @@
             }
             .assoc-nav.active ul { display: flex; }
             .hero h1 { font-size: 2.5rem; }
-            
+
+
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
             /* ---- REZOLVARE BUG IPHONE AICI ---- */
             .hero { background-attachment: scroll !important; }
             
