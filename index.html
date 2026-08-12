@@ -187,63 +187,15 @@
         .rep-list li { padding: 12px 0; border-bottom: 1px solid var(--surface-light); display: flex; align-items: center; }
         .rep-list i { color: var(--primary-green); margin-right: 15px; }
 
-        /* ================= Proiecte ================= */
-        .bento-section { background-color: var(--surface-light); }
-        .bento-container { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; max-width: 1200px; margin: 0 auto; }
-        .bento-box { background-color: var(--bg-white); border-radius: 20px; padding: 40px; transition: transform 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        .bento-box:hover { transform: translateY(-5px); }
-        .bento-box h3 { color: var(--primary-green); margin-bottom: 15px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;}
-        
-        .bento-large { grid-row: span 3; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('bal scena.webp') center/cover; color: var(--bg-white); display: flex; flex-direction: column; justify-content: flex-end; padding: 50px 40px; min-height: 450px;}
-        .bento-large h3 { color: var(--accent-gold); }
-
-        .event-bento { display: flex; align-items: center; gap: 20px; padding: 25px; }
-        .event-date-mini { background: var(--primary-green); color: var(--bg-white); border-radius: 12px; padding: 15px; text-align: center; min-width: 80px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(59, 106, 80, 0.2); }
-        .event-date-mini span { display: block; font-size: 1.8rem; font-weight: 700; line-height: 1; font-family: 'Poppins', sans-serif; }
-        .event-date-mini small { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9;}
-        .event-details-mini h4 { color: var(--primary-green); margin-bottom: 5px; font-size: 1.15rem; }
-        .event-details-mini p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0; line-height: 1.4; }
-        
-        /* ================= Galerie Foto ================= */
-        .aligned-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .gallery-item { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; aspect-ratio: 4 / 3; }
-        .gallery-item:hover { transform: scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-        /* ================= Parteneri ================= */
-        .partners-slider { position: relative; max-width: 1400px; margin: 0 auto; overflow: hidden; padding: 20px 0;}
-        .partners-slider::before, .partners-slider::after { content: ""; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; }
-        .partners-slider::before { left: 0; background: linear-gradient(to right, var(--surface-light) 0%, rgba(244,247,245,0) 100%); }
-        .partners-slider::after { right: 0; background: linear-gradient(to left, var(--surface-light) 0%, rgba(244,247,245,0) 100%); }
-        .partners-track { display: flex; gap: 40px; width: max-content; animation: scroll-partners 20s linear infinite; }
-        .partners-track:hover { animation-play-state: paused; }
-        .partner-logo { width: 160px; height: 90px; background-color: var(--bg-white); border-radius: 12px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .partner-logo img { max-width: 80%; max-height: 80%; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease, transform 0.3s ease; }
-        .partner-logo:hover img { filter: grayscale(0%); transform: scale(1.1); }
-        @keyframes scroll-partners { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 20px)); } }
-
-        /* ================= Footer ================= */
-        .site-footer { background-color: var(--text-dark); color: var(--bg-white); padding: 70px 5% 20px; font-size: 0.9rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; }
-        .footer-brand h3 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 15px; }
-        .social-icons { display: flex; gap: 15px; margin-top: 20px;}
-        .social-icons a { width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: var(--bg-white); font-size: 1.1rem;}
-        .social-icons a:hover { background-color: var(--accent-gold); color: var(--text-dark); transform: translateY(-3px);}
-        .footer-col h4 { font-size: 1.1rem; margin-bottom: 20px; color: var(--bg-white); text-transform: uppercase; letter-spacing: 1px;}
-        .footer-col ul li { margin-bottom: 12px; color: #D1D8D4;}
-        .footer-col ul li a { transition: color 0.3s; }
-        .footer-col ul li a:hover { color: var(--accent-gold); }
-        .footer-bottom { text-align: center; color: #8A9A91; font-size: 0.85rem; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px;}
-
         /* ================= Documente ================= */
         .docs-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Forțează exact 2 coloane mereu */
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            max-width: 900px; /* Lățime mai mică pentru a ține cardurile compacte */
+            max-width: 900px;
             margin: 0 auto;
         }
-
+        
         .doc-card {
             background-color: var(--bg-white);
             border-radius: 12px;
@@ -307,6 +259,53 @@
             color: var(--accent-gold);
         }
 
+        /* ================= Proiecte ================= */
+        .bento-section { background-color: var(--surface-light); }
+        .bento-container { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; max-width: 1200px; margin: 0 auto; }
+        .bento-box { background-color: var(--bg-white); border-radius: 20px; padding: 40px; transition: transform 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .bento-box:hover { transform: translateY(-5px); }
+        .bento-box h3 { color: var(--primary-green); margin-bottom: 15px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;}
+        
+        .bento-large { grid-row: span 3; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('bal scena.webp') center/cover; color: var(--bg-white); display: flex; flex-direction: column; justify-content: flex-end; padding: 50px 40px; min-height: 450px;}
+        .bento-large h3 { color: var(--accent-gold); }
+
+        .event-bento { display: flex; align-items: center; gap: 20px; padding: 25px; }
+        .event-date-mini { background: var(--primary-green); color: var(--bg-white); border-radius: 12px; padding: 15px; text-align: center; min-width: 80px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(59, 106, 80, 0.2); }
+        .event-date-mini span { display: block; font-size: 1.8rem; font-weight: 700; line-height: 1; font-family: 'Poppins', sans-serif; }
+        .event-date-mini small { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9;}
+        .event-details-mini h4 { color: var(--primary-green); margin-bottom: 5px; font-size: 1.15rem; }
+        .event-details-mini p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0; line-height: 1.4; }
+        
+        /* ================= Galerie Foto ================= */
+        .aligned-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .gallery-item { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; aspect-ratio: 4 / 3; }
+        .gallery-item:hover { transform: scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* ================= Parteneri ================= */
+        .partners-slider { position: relative; max-width: 1400px; margin: 0 auto; overflow: hidden; padding: 20px 0;}
+        .partners-slider::before, .partners-slider::after { content: ""; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; }
+        .partners-slider::before { left: 0; background: linear-gradient(to right, var(--surface-light) 0%, rgba(244,247,245,0) 100%); }
+        .partners-slider::after { right: 0; background: linear-gradient(to left, var(--surface-light) 0%, rgba(244,247,245,0) 100%); }
+        .partners-track { display: flex; gap: 40px; width: max-content; animation: scroll-partners 20s linear infinite; }
+        .partners-track:hover { animation-play-state: paused; }
+        .partner-logo { width: 160px; height: 90px; background-color: var(--bg-white); border-radius: 12px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .partner-logo img { max-width: 80%; max-height: 80%; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease, transform 0.3s ease; }
+        .partner-logo:hover img { filter: grayscale(0%); transform: scale(1.1); }
+        @keyframes scroll-partners { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 20px)); } }
+
+        /* ================= Footer ================= */
+        .site-footer { background-color: var(--text-dark); color: var(--bg-white); padding: 70px 5% 20px; font-size: 0.9rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; }
+        .footer-brand h3 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 15px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px;}
+        .social-icons a { width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: var(--bg-white); font-size: 1.1rem;}
+        .social-icons a:hover { background-color: var(--accent-gold); color: var(--text-dark); transform: translateY(-3px);}
+        .footer-col h4 { font-size: 1.1rem; margin-bottom: 20px; color: var(--bg-white); text-transform: uppercase; letter-spacing: 1px;}
+        .footer-col ul li { margin-bottom: 12px; color: #D1D8D4;}
+        .footer-col ul li a { transition: color 0.3s; }
+        .footer-col ul li a:hover { color: var(--accent-gold); }
+        .footer-bottom { text-align: center; color: #8A9A91; font-size: 0.85rem; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px;}
 
         /* ================= RESPONSIVITATE ================= */
         @media (max-width: 1024px) {
@@ -329,17 +328,16 @@
             }
             .assoc-nav.active ul { display: flex; }
             .hero h1 { font-size: 2.5rem; }
-
-
-            .docs-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+            
             /* ---- REZOLVARE BUG IPHONE AICI ---- */
             .hero { background-attachment: scroll !important; }
             
             .team-card { flex: 0 0 100%; }
             .rep-container { flex-direction: column; }
+            
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
             
             .bento-container { grid-template-columns: 1fr; }
             .bento-large { grid-row: span 1; min-height: 350px; }
@@ -501,8 +499,9 @@
             <ul>
                 <li><a href="index.html#despre">Despre</a></li>
                 <li><a href="index.html#echipa">Echipa</a></li>
-                <li><a href="index.html#proiecte">Evenimente</a></li>
                 <li><a href="index.html#reprezentare">Reprezentare</a></li>
+                <li><a href="index.html#documente">Documente</a></li>
+                <li><a href="index.html#proiecte">Evenimente</a></li>
                 <li><a href="index.html#galerie">Galerie</a></li>
                 <li><a href="contact.html" class="btn btn-primary">Contact</a></li>
             </ul>
@@ -746,7 +745,7 @@
                 </div>
                 <div class="doc-content">
                     <h4>Statutul AS-USAMV</h4>
-                    <p>Modul de organizare și funcționare a asociației noastre.</p>
+                    <p>Modul de organizare și funcționare, incluzând modificările recente ale articolelor (cu numerotarea păstrată).</p>
                 </div>
                 <div class="doc-action">
                     <i class="fas fa-download"></i>
@@ -769,34 +768,34 @@
             
             <div class="bento-box event-bento">
                 <div class="event-date-mini">
-                    <span>DATE</span>
-                    <small>TBA</small>
+                    <span>22</span>
+                    <small>Apr</small>
                 </div>
                 <div class="event-details-mini">
-                    <h4>TBA</h4>
-                    <p>To be anounced...</p>
+                    <h4>USAMV Jobs</h4>
+                    <p>Interacțiune directă studenți-angajatori! Găsește jobul, internship-ul sau programul de voluntariat potrivit pentru tine.</p>
                 </div>
             </div>
 
             <div class="bento-box event-bento">
                 <div class="event-date-mini">
-                    <span>DATA</span>
-                    <small>TBA</small>
+                    <span>7-10</span>
+                    <small>Mai</small>
                 </div>
                 <div class="event-details-mini">
-                    <h4>TBA</h4>
-                    <p>To be anounced</p>
+                    <h4>Agronomiada</h4>
+                    <p>Marea competiție sportivă și științifică ce reunește studenții agronomi din România și Republica Moldova.</p>
                 </div>
             </div>
 
             <div class="bento-box event-bento">
                 <div class="event-date-mini">
-                    <span>DATE</span>
-                    <small>TBA</small>
+                    <span>17</span>
+                    <small>Mai</small>
                 </div>
                 <div class="event-details-mini">
-                    <h4>TBA</h4>
-                    <p>To be anounced...</p>
+                    <h4>Gala AS-USAMV</h4>
+                    <p>Sărbătorim prima gală aniversară a Asociației Studenților USAMV București. Vino să celebrăm reușitele împreună!</p>
                 </div>
             </div>
         </div>
@@ -951,19 +950,26 @@
             let isAnimating = false;
 
             function getVisibleCards() {
-                if (window.innerWidth <= 768) return 1;
-                if (window.innerWidth <= 1024) return 2;
-                return 3;
+                const viewport = document.querySelector('.carousel-viewport');
+                const firstCard = track.children[0];
+                
+                if (!viewport || !firstCard) return 1;
+                
+                const viewportWidth = viewport.getBoundingClientRect().width;
+                const cardWidth = firstCard.getBoundingClientRect().width;
+                
+                return Math.max(1, Math.round(viewportWidth / cardWidth));
             }
 
             function moveNext() {
                 if (isAnimating || !track) return;
                 isAnimating = true;
 
-                const visibleCards = getVisibleCards();
+                const visibleCards = getVisibleCards(); 
                 const firstCard = track.children[0];
                 const cardWidth = firstCard.getBoundingClientRect().width;
                 const gap = 24; 
+                
                 const moveDistance = (cardWidth + gap) * visibleCards;
 
                 track.style.transition = 'transform 0.5s ease-in-out';
@@ -986,10 +992,11 @@
                 if (isAnimating || !track) return;
                 isAnimating = true;
 
-                const visibleCards = getVisibleCards();
+                const visibleCards = getVisibleCards(); 
                 const firstCard = track.children[0];
                 const cardWidth = firstCard.getBoundingClientRect().width;
                 const gap = 24;
+                
                 const moveDistance = (cardWidth + gap) * visibleCards;
 
                 for (let i = 0; i < visibleCards; i++) {
