@@ -947,10 +947,14 @@
             });
 
             /* ================= Carusel Logic Optimizat ================= */
+            /* ================= Carusel Logic cu Reset la Președinte ================= */
             const track = document.getElementById('track');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const carouselViewport = document.querySelector('.carousel-viewport');
+            
+            // Reținem primul card (Președintele) ca punct de referință
+            const startCard = track ? track.children[0] : null;
             let isAnimating = false;
 
             function getVisibleCount() {
@@ -968,13 +972,22 @@
                 if (isAnimating || !track || track.children.length === 0) return;
                 isAnimating = true;
 
-                const count = getVisibleCount(); 
+                const visible = getVisibleCount();
+                const total = track.children.length;
+                const startIndex = Array.from(track.children).indexOf(startCard);
+                
+                // Dacă ne apropiem de Președinte la finalul ciclului, mutăm doar restul rămas
+                let count = visible;
+                if (startIndex > 0 && startIndex < visible) {
+                    count = startIndex;
+                }
+
                 const firstCard = track.children[0];
                 const cardWidth = firstCard.offsetWidth;
                 const gap = 24; 
                 const moveDistance = (cardWidth + gap) * count;
 
-                track.style.transition = 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                track.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)';
                 track.style.transform = `translate3d(-${moveDistance}px, 0, 0)`;
 
                 track.addEventListener('transitionend', function handler() {
@@ -995,7 +1008,21 @@
                 if (isAnimating || !track || track.children.length === 0) return;
                 isAnimating = true;
 
-                const count = getVisibleCount(); 
+                const visible = getVisibleCount();
+                const total = track.children.length;
+                const startIndex = Array.from(track.children).indexOf(startCard);
+                
+                // La mersul înapoi, calculăm simetric restul
+                let count = visible;
+                if (startIndex === 0) {
+                    count = (total % visible) || visible;
+                } else {
+                    const cardsToEnd = total - startIndex;
+                    if (cardsToEnd < visible) {
+                        count = cardsToEnd;
+                    }
+                }
+
                 const firstCard = track.children[0];
                 const cardWidth = firstCard.offsetWidth;
                 const gap = 24; 
@@ -1010,7 +1037,7 @@
 
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
-                        track.style.transition = 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                        track.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)';
                         track.style.transform = 'translate3d(0, 0, 0)';
 
                         track.addEventListener('transitionend', function handler() {
