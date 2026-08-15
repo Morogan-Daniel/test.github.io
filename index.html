@@ -157,20 +157,33 @@
         /* ================= Echipa ================= */
         .team-section { background-color: var(--surface-light); overflow: hidden; }
         .carousel-wrapper { position: relative; max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 20px; }
-        .carousel-viewport { overflow: hidden; width: 100%; padding: 20px 0; touch-action: pan-y; }
-        .carousel-track { display: flex; gap: 24px; }
+        .carousel-viewport { 
+            overflow: hidden; 
+            flex: 1; 
+            min-width: 0; 
+            padding: 20px 0; 
+            touch-action: pan-y; 
+        }
+        .carousel-track { 
+            display: flex; 
+            gap: 24px; 
+            will-change: transform;
+        }
         .team-card {
             flex: 0 0 calc((100% - 48px) / 3); 
-            background-color: var(--bg-white); padding: 40px 20px; border-radius: 16px; 
-            text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border-bottom: 4px solid transparent; transition: all 0.3s ease;
+            background-color: var(--bg-white); 
+            padding: 35px 20px; 
+            border-radius: 16px; 
+            text-align: center; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-bottom: 4px solid transparent; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
         }
         .team-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-bottom: 4px solid var(--accent-gold); }
         .member-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 3px solid var(--surface-light);}
-        .member-name { font-size: 1.25rem; color: var(--text-dark); margin-bottom: 5px; font-weight: 700;}
-        .member-role { color: var(--accent-gold); font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; display: block;}
-        .member-contact { font-size: 0.9rem; color: #666; }
-        .member-contact a:hover { color: var(--accent-gold); }
+        .member-name { font-size: 1.25rem; color: var(--text-dark); margin-bottom: 8px; font-weight: 700;}
+        .member-role { color: var(--accent-gold); font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: block;}
+        
         .carousel-btn {
             background-color: var(--bg-white); border: 1px solid #e5e5e5; width: 45px; height: 45px;
             border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.1); font-size: 1.2rem;
@@ -329,7 +342,6 @@
             .assoc-nav.active ul { display: flex; }
             .hero h1 { font-size: 2.5rem; }
             
-            /* ---- REZOLVARE BUG IPHONE AICI ---- */
             .hero { background-attachment: scroll !important; }
             
             .team-card { flex: 0 0 100%; }
@@ -560,100 +572,84 @@
             <div class="carousel-viewport">
                 <div class="carousel-track" id="track">
                     <div class="team-card">
-                        <img src="Pres.webp" alt="Alexandru-Daniel Morogan" class="member-img">
+                        <img src="foto presedinte.webp" alt="Alexandru-Daniel Morogan" class="member-img">
                         <h3 class="member-name">Alexandru-Daniel Morogan</h3>
                         <span class="member-role">Președinte</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:alexandru-daniel.morogan@fmvb.usamv.ro">alexandru-daniel.morogan@fmvb.usamv.ro</a></p>
                     </div>
                     <div class="team-card">
-                        <img src="Vice.webp" alt="Marius-Andrei Ștefănescu" class="member-img">
+                        <img src="foto secretar.webp" alt="Marius-Andrei Ștefănescu" class="member-img">
                         <h3 class="member-name">Marius-Andrei Ștefanescu</h3>
                         <span class="member-role">Vicepreședinte</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:mailto:stefanescu.marius25@stud.managusamv.ro"> stefanescu.marius25@stud.managusamv.ro</a></p>
                     </div>
                     <div class="team-card">
-                        <img src="Sg.webp" alt="Mihai Cristea-Mangu" class="member-img">
+                        <img src="foto externe.webp" alt="Mihai Cristea-Mangu" class="member-img">
                         <h3 class="member-name">Mihai Cristea-Mangu</h3>
                         <span class="member-role">Secretar General</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:mihai.cristea-mangu@bth.usamv.ro"> mihai.cristea-mangu@bth.usamv.ro</a></p>
                     </div>
                      <div class="team-card">
-                        <img src="Dir-hr.webp" alt="Isabella Țâcmeanu" class="member-img">
+                        <img src="foto hr.webp" alt="Isabella Țâcmeanu" class="member-img">
                         <h3 class="member-name">Isabella Țâcmeanu</h3>
                         <span class="member-role">Director HR&Organizare</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:isabela.tacmeanu24@bth.usamv.ro"> isabela.tacmeanu24@bth.usamv.ro</a></p>
                     </div>
                     <div class="team-card">
-                        <img src="Dir-mk.webp" alt="Darian Munteanu" class="member-img">
+                        <img src="foto mk&pr.webp" alt="Darian Munteanu" class="member-img">
                         <h3 class="member-name">Darian Munteanu</h3>
                         <span class="member-role">Director Marketing&PR</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:darian.munteanu24@bth.usamv.ro"> darian.munteanu24@bth.usamv.ro</a></p>
                     </div>
                     <div class="team-card">
-                        <img src="Dir-fr.webp" alt="Anna Roman" class="member-img">
+                        <img src="foto fr.webp" alt="Anna Roman" class="member-img">
                         <h3 class="member-name">Anna Roman</h3>
                         <span class="member-role">Director Fundraising</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:anna.roman@agro.usamv.ro"> anna.roman@agro.usamv.ro</a></p>
                     </div>
                      <div class="team-card">
-                        <img src="Dir-pm.webp" alt="Alexandra Dragomir" class="member-img">
+                        <img src="foto PM.webp" alt="Alexandra Dragomir" class="member-img">
                         <h3 class="member-name">Alexandra Dragomir</h3>
                         <span class="member-role">Director Project Management</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:alexandra-gabriela.dragomir@fmvb.usamv.ro"> alexandra-gabriela.dragomir@fmvb.usamv.ro</a></p>
                     </div>
                     <div class="team-card">
-                        <img src="Dir-edu.webp" alt="Cezar Hugeanu" class="member-img">
+                        <img src="foto edu.webp" alt="Cezar Hugeanu" class="member-img">
                         <h3 class="member-name">Cezar Hugeanu</h3>
                         <span class="member-role">Director Educațional</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:Cezar-gabriel.hugeanu@figpa.usamv.ro"> Cezar-gabriel.hugeanu@figpa.usamv.ro</a></p>
                     </div>
                     <div class="team-card">
-                        <img src="Rep-agri.webp" alt="Sviatoslav Floshtier" class="member-img">
+                        <img src="foto interne.webp" alt="Sviatoslav Floshtier" class="member-img">
                         <h3 class="member-name">Sviatoslav Floshtier</h3>
-                        <span class="member-role">Reprezentant al Facultății de Agricultură</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:sviatoslav.floshtier@agro.usamv.ro"> sviatoslav.floshtier@agro.usamv.ro</a></p>
+                        <span class="member-role">Reprezentant Facultatea de Agricultură</span>
                     </div>
                     <div class="team-card">
-                        <img src="Rep-igpa.webp" alt="Mihai Drăgan" class="member-img">
+                        <img src="foto univ.webp" alt="Mihai Drăgan" class="member-img">
                         <h3 class="member-name">Mihai Drăgan</h3>
-                        <span class="member-role">Reprezentant al Facultății de Ingineria și Gestiunea Producțiilor Animaliere</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:mihai.dragan@figpa.usamv.ro"> mihai.dragan@figpa.usamv.ro</a></p>
+                        <span class="member-role">Reprezentant F.I.G.P.A.</span>
                     </div>
                     <div class="team-card">
-                        <img src="Rep-horti.webp" alt="Raisa Stoian" class="member-img">
+                        <img src="foto comunicare.webp" alt="Raisa Stoian" class="member-img">
                         <h3 class="member-name">Raisa Stoian</h3>
-                        <span class="member-role">Reprezentant al Facultății de Horticultură</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:raisa.stoian@horti.usamv.ro"> raisa.stoian@horti.usamv.ro</a></p>
+                        <span class="member-role">Reprezentant Facultatea de Horticultură</span>
                     </div>
                     <div class="team-card">
-                        <img src="Rep-fifim.webp" alt="Alecsia Sărăcin" class="member-img">
+                        <img src="foto vpmv.webp" alt="Alecsia Sărăcin" class="member-img">
                         <h3 class="member-name">Alecsia Sărăcin</h3>
-                        <span class="member-role">Reprezentant al Facultății de Îmbunătățiri Funciare și Ingineria Mediului</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:georgiana-alecsia.saracin@if.usamv.ro"> georgiana-alecsia.saracin@if.usamv.ro</a></p>
+                        <span class="member-role">Reprezentant F.I.F.I.M.</span>
                     </div>
                     <div class="team-card">
-                        <img src="Rep-bth.webp" alt="Andreea Munteanu" class="member-img">
+                        <img src="foto comunicare.webp" alt="Andreea Munteanu" class="member-img">
                         <h3 class="member-name">Andreea Munteanu</h3>
-                        <span class="member-role">Reprezentant al Facultății de Biotehnologii</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:andreea.munteanu24@bth.usam.ro"> andreea.munteanu24@bth.usam.ro</a></p>
+                        <span class="member-role">Reprezentant Facultatea de Biotehnologii</span>
                     </div>
                     <div class="team-card">
-                        <img src="Rep-mdr.webp" alt="Georgiana Sandu" class="member-img">
+                        <img src="foto comunicare.webp" alt="Georgiana Sandu" class="member-img">
                         <h3 class="member-name">Georgiana Sandu</h3>
-                        <span class="member-role">Reprezentant al Facultății de Management și Dezvoltare Rurală</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:sandu.georgiana24@stud.managusamv.ro"> sandu.georgiana24@stud.managusamv.ro</a></p>
+                        <span class="member-role">Reprezentant Facultatea de Management</span>
                     </div>
                     <div class="team-card">
-                        <img src="Rep-mv.webp" alt="Daniel Vișan" class="member-img">
+                        <img src="foto comunicare.webp" alt="Daniel Vișan" class="member-img">
                         <h3 class="member-name">Daniel Vișan</h3>
-                        <span class="member-role">Reprezentant al Facultății de Medicină Veterinară</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:daniel-mihai.visan@fmvb.usamv.ro"> daniel-mihai.visan@fmvb.usamv.ro</a></p>
+                        <span class="member-role">Reprezentant Facultatea de Medicină Veterinară</span>
                     </div>
                     <div class="team-card">
-                        <img src="Cenzor.webp" alt="Vlad Bucur" class="member-img">
+                        <img src="foto comunicare.webp" alt="Vlad Bucur" class="member-img">
                         <h3 class="member-name">Vlad Bucur</h3>
                         <span class="member-role">Cenzor</span>
-                        <p class="member-contact"><i class="fas fa-envelope"></i> <a href="mailto:mailto:student@usamv.ro"> student@usamv.ro</a></p>
                     </div>
                 </div>
             </div>
@@ -696,8 +692,7 @@
         </div>
         
         <div class="docs-grid">
-            <!-- Document 1 -->
-            <a href="https://usamv.ro/wp-content/uploads/2025/11/Regulament-privind-acordarea-de-burse-si-alte-forme-de-sprijin-material-Cuantum-14.11.2025.pdf" target="_blank" class="doc-card">
+            <a href="link-catre-regulament-burse.pdf" target="_blank" class="doc-card">
                 <div class="doc-icon">
                     <i class="fas fa-file-pdf"></i>
                 </div>
@@ -710,13 +705,12 @@
                 </div>
             </a>
 
-            <!-- Document 2 -->
-            <a href="https://usamv.ro/wp-content/uploads/2026/07/RAPS_2026_2027_FINAL.pdf" target="_blank" class="doc-card">
+            <a href="link-catre-regulament-camine.pdf" target="_blank" class="doc-card">
                 <div class="doc-icon">
                     <i class="fas fa-home"></i>
                 </div>
                 <div class="doc-content">
-                    <h4>Regulament privind activitatea profesionala a studenților</h4>
+                    <h4>Regulament Cămine</h4>
                     <p>Reguli de cazare, drepturi și obligații în campusul studențesc.</p>
                 </div>
                 <div class="doc-action">
@@ -724,8 +718,7 @@
                 </div>
             </a>
 
-            <!-- Document 3 -->
-            <a href="https://usamv.ro/wp-content/uploads/2024/11/7eee3f07-c8fc-4f8f-88ca-2833c6b02b0f.pdf" target="_blank" class="doc-card">
+            <a href="link-catre-statutul-studentului.pdf" target="_blank" class="doc-card">
                 <div class="doc-icon">
                     <i class="fas fa-balance-scale"></i>
                 </div>
@@ -738,14 +731,13 @@
                 </div>
             </a>
 
-            <!-- Document 4 -->
-            <a href="https://usamv.ro/wp-content/uploads/2025/07/Carta-USAMVB_2025.pdf" target="_blank" class="doc-card">
+            <a href="link-catre-statut-asociatie.pdf" target="_blank" class="doc-card">
                 <div class="doc-icon">
                     <i class="fas fa-file-signature"></i>
                 </div>
                 <div class="doc-content">
-                    <h4>Carta Universitară USAMVB</h4>
-                    <p>Modul de organizare și funcționare, incluzând modificările recente ale articolelor.</p>
+                    <h4>Statutul AS-USAMV</h4>
+                    <p>Modul de organizare și funcționare, incluzând modificările recente ale articolelor (cu numerotarea păstrată).</p>
                 </div>
                 <div class="doc-action">
                     <i class="fas fa-download"></i>
@@ -870,12 +862,10 @@
     <div id="google_translate_element"></div>
 
     <script type="text/javascript">
-        // Funcția de inițializare Google Translate
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'ro', autoDisplay: false}, 'google_translate_element');
         }
 
-        // Funcția declanșată la apăsarea steagurilor
         function schimbaLimba(lang) {
             if (lang === 'ro') {
                 document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -892,7 +882,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // Verificare limbă activă din cookie pentru a seta steagul corect
             const match = document.cookie.match(/(?:^|;)\s*googtrans=([^;]*)/);
             let currentLang = 'ro';
             if (match && match[1]) {
@@ -957,46 +946,46 @@
                 
                 const viewportWidth = viewport.getBoundingClientRect().width;
                 const cardWidth = firstCard.getBoundingClientRect().width;
+                const gap = 24;
                 
-                return Math.max(1, Math.round(viewportWidth / cardWidth));
+                return Math.max(1, Math.round(viewportWidth / (cardWidth + gap)));
             }
 
             function moveNext() {
-                if (isAnimating || !track) return;
+                if (isAnimating || !track || track.children.length === 0) return;
                 isAnimating = true;
 
                 const visibleCards = getVisibleCards(); 
                 const firstCard = track.children[0];
                 const cardWidth = firstCard.getBoundingClientRect().width;
                 const gap = 24; 
-                
                 const moveDistance = (cardWidth + gap) * visibleCards;
 
-                track.style.transition = 'transform 0.5s ease-in-out';
-                track.style.transform = `translateX(-${moveDistance}px)`;
+                track.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+                track.style.transform = `translate3d(-${moveDistance}px, 0, 0)`;
 
                 track.addEventListener('transitionend', function handler() {
+                    track.removeEventListener('transitionend', handler);
                     track.style.transition = 'none'; 
-                    track.style.transform = 'translateX(0)'; 
+                    track.style.transform = 'translate3d(0, 0, 0)'; 
                     
                     for (let i = 0; i < visibleCards; i++) {
-                        track.appendChild(track.children[0]);
+                        if (track.children.length > 0) {
+                            track.appendChild(track.children[0]);
+                        }
                     }
-                    
-                    track.removeEventListener('transitionend', handler);
                     isAnimating = false;
-                });
+                }, { once: true });
             }
 
             function movePrev() {
-                if (isAnimating || !track) return;
+                if (isAnimating || !track || track.children.length === 0) return;
                 isAnimating = true;
 
                 const visibleCards = getVisibleCards(); 
                 const firstCard = track.children[0];
                 const cardWidth = firstCard.getBoundingClientRect().width;
-                const gap = 24;
-                
+                const gap = 24; 
                 const moveDistance = (cardWidth + gap) * visibleCards;
 
                 for (let i = 0; i < visibleCards; i++) {
@@ -1004,16 +993,18 @@
                 }
 
                 track.style.transition = 'none';
-                track.style.transform = `translateX(-${moveDistance}px)`;
-                
-                track.offsetHeight; 
+                track.style.transform = `translate3d(-${moveDistance}px, 0, 0)`;
 
-                track.style.transition = 'transform 0.5s ease-in-out';
-                track.style.transform = `translateX(0)`;
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        track.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+                        track.style.transform = 'translate3d(0, 0, 0)';
 
-                track.addEventListener('transitionend', function handler() {
-                    track.removeEventListener('transitionend', handler);
-                    isAnimating = false;
+                        track.addEventListener('transitionend', function handler() {
+                            track.removeEventListener('transitionend', handler);
+                            isAnimating = false;
+                        }, { once: true });
+                    });
                 });
             }
 
