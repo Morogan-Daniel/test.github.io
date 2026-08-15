@@ -118,7 +118,7 @@
 
         /* ================= Hero Section ================= */
         .hero { 
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(parada.webp) center / cover fixed; 
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url(grup-tb.jpeg) center / cover fixed; 
             color: var(--bg-white); padding: 120px 5%; text-align: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             min-height: 80vh; 
@@ -154,7 +154,7 @@
         .pillar:hover .pillar-icon i { color: var(--accent-gold); }
         .pillar h4 { color: var(--primary-green); text-transform: uppercase; margin-bottom: 10px; font-size: 1.1rem;}
 
-        /* ================= Echipa ================= */
+        /* ================= Echipa & Carusel Optimizat ================= */
         .team-section { background-color: var(--surface-light); overflow: hidden; }
         .carousel-wrapper { position: relative; max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 20px; }
         .carousel-viewport { 
@@ -162,12 +162,15 @@
             flex: 1; 
             min-width: 0; 
             padding: 20px 0; 
-            touch-action: pan-y; 
+            touch-action: pan-y;
+            contain: paint;
         }
         .carousel-track { 
             display: flex; 
             gap: 24px; 
             will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
         .team-card {
             flex: 0 0 calc((100% - 48px) / 3); 
@@ -175,12 +178,22 @@
             padding: 35px 20px; 
             border-radius: 16px; 
             text-align: center; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             border-bottom: 4px solid transparent; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-bottom 0.25s ease;
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
-        .team-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-bottom: 4px solid var(--accent-gold); }
-        .member-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 3px solid var(--surface-light);}
+        .team-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); border-bottom: 4px solid var(--accent-gold); }
+        .member-img { 
+            width: 120px; 
+            height: 120px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            margin: 0 auto 20px; 
+            border: 3px solid var(--surface-light);
+            display: block;
+        }
         .member-name { font-size: 1.25rem; color: var(--text-dark); margin-bottom: 8px; font-weight: 700;}
         .member-role { color: var(--accent-gold); font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: block;}
         
@@ -188,7 +201,7 @@
             background-color: var(--bg-white); border: 1px solid #e5e5e5; width: 45px; height: 45px;
             border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.1); font-size: 1.2rem;
             color: var(--primary-green); cursor: pointer; flex-shrink: 0; display: flex;
-            align-items: center; justify-content: center; transition: all 0.2s; z-index: 10;
+            align-items: center; justify-content: center; transition: background-color 0.2s, color 0.2s; z-index: 10;
         }
         .carousel-btn:hover { background-color: var(--primary-green); color: var(--bg-white); border-color: var(--primary-green); }
 
@@ -218,7 +231,7 @@
             gap: 15px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             border: 1px solid var(--surface-light);
-            transition: all 0.3s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
             position: relative;
             overflow: hidden;
         }
@@ -240,7 +253,7 @@
             justify-content: center;
             font-size: 1.5rem;
             flex-shrink: 0;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s, color 0.3s;
         }
         
         .doc-card:hover .doc-icon {
@@ -250,8 +263,9 @@
         
         .doc-content h4 {
             color: var(--primary-green);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 5px;
+            font-weight: 600;
         }
         
         .doc-content p {
@@ -567,94 +581,94 @@
         </div>
         
         <div class="carousel-wrapper">
-            <button class="carousel-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn" id="prevBtn" aria-label="Card precedent"><i class="fas fa-chevron-left"></i></button>
             
             <div class="carousel-viewport">
                 <div class="carousel-track" id="track">
                     <div class="team-card">
-                        <img src="foto presedinte.webp" alt="Alexandru-Daniel Morogan" class="member-img">
+                        <img src="Pres.webp" alt="Alexandru-Daniel Morogan" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Alexandru-Daniel Morogan</h3>
                         <span class="member-role">Președinte</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto secretar.webp" alt="Marius-Andrei Ștefănescu" class="member-img">
+                        <img src="Vice.webp" alt="Marius-Andrei Ștefănescu" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Marius-Andrei Ștefanescu</h3>
                         <span class="member-role">Vicepreședinte</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto externe.webp" alt="Mihai Cristea-Mangu" class="member-img">
+                        <img src="Sg.webp" alt="Mihai Cristea-Mangu" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Mihai Cristea-Mangu</h3>
                         <span class="member-role">Secretar General</span>
                     </div>
                      <div class="team-card">
-                        <img src="foto hr.webp" alt="Isabella Țâcmeanu" class="member-img">
+                        <img src="Dir-hr.webp" alt="Isabella Țâcmeanu" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Isabella Țâcmeanu</h3>
                         <span class="member-role">Director HR&Organizare</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto mk&pr.webp" alt="Darian Munteanu" class="member-img">
+                        <img src="Dir-mk.webp" alt="Darian Munteanu" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Darian Munteanu</h3>
                         <span class="member-role">Director Marketing&PR</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto fr.webp" alt="Anna Roman" class="member-img">
+                        <img src="Dir-fr.webp" alt="Anna Roman" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Anna Roman</h3>
                         <span class="member-role">Director Fundraising</span>
                     </div>
                      <div class="team-card">
-                        <img src="foto PM.webp" alt="Alexandra Dragomir" class="member-img">
+                        <img src="Dir-pm.webp" alt="Alexandra Dragomir" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Alexandra Dragomir</h3>
                         <span class="member-role">Director Project Management</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto edu.webp" alt="Cezar Hugeanu" class="member-img">
+                        <img src="Dir-edu.webp" alt="Cezar Hugeanu" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Cezar Hugeanu</h3>
                         <span class="member-role">Director Educațional</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto interne.webp" alt="Sviatoslav Floshtier" class="member-img">
+                        <img src="Rep-agri.webp" alt="Sviatoslav Floshtier" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Sviatoslav Floshtier</h3>
                         <span class="member-role">Reprezentant Facultatea de Agricultură</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto univ.webp" alt="Mihai Drăgan" class="member-img">
+                        <img src="Rep-igpa.webp" alt="Mihai Drăgan" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Mihai Drăgan</h3>
                         <span class="member-role">Reprezentant F.I.G.P.A.</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto comunicare.webp" alt="Raisa Stoian" class="member-img">
+                        <img src="Rep-horti.webp" alt="Raisa Stoian" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Raisa Stoian</h3>
                         <span class="member-role">Reprezentant Facultatea de Horticultură</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto vpmv.webp" alt="Alecsia Sărăcin" class="member-img">
+                        <img src="Rep-fifim.webp" alt="Alecsia Sărăcin" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Alecsia Sărăcin</h3>
                         <span class="member-role">Reprezentant F.I.F.I.M.</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto comunicare.webp" alt="Andreea Munteanu" class="member-img">
+                        <img src="Rep-bth.webp" alt="Andreea Munteanu" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Andreea Munteanu</h3>
                         <span class="member-role">Reprezentant Facultatea de Biotehnologii</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto comunicare.webp" alt="Georgiana Sandu" class="member-img">
+                        <img src="Rep-mdr.webp" alt="Georgiana Sandu" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Georgiana Sandu</h3>
                         <span class="member-role">Reprezentant Facultatea de Management</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto comunicare.webp" alt="Daniel Vișan" class="member-img">
+                        <img src="Rep-mv.webp" alt="Daniel Vișan" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Daniel Vișan</h3>
                         <span class="member-role">Reprezentant Facultatea de Medicină Veterinară</span>
                     </div>
                     <div class="team-card">
-                        <img src="foto comunicare.webp" alt="Vlad Bucur" class="member-img">
+                        <img src="Cenzor.webp" alt="Vlad Bucur" class="member-img" width="120" height="120" loading="lazy" decoding="async">
                         <h3 class="member-name">Vlad Bucur</h3>
                         <span class="member-role">Cenzor</span>
                     </div>
                 </div>
             </div>
             
-            <button class="carousel-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            <button class="carousel-btn" id="nextBtn" aria-label="Card urmator"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
@@ -692,52 +706,52 @@
         </div>
         
         <div class="docs-grid">
-            <a href="link-catre-regulament-burse.pdf" target="_blank" class="doc-card">
+            <a href="https://usamv.ro/wp-content/uploads/2025/11/Regulament-privind-acordarea-de-burse-si-alte-forme-de-sprijin-material-Cuantum-14.11.2025.pdf" target="_blank" class="doc-card">
                 <div class="doc-icon">
-                    <i class="fas fa-file-pdf"></i>
+                    <i class="fas fa-file-invoice-dollar"></i>
                 </div>
                 <div class="doc-content">
                     <h4>Regulament Burse</h4>
-                    <p>Criterii de acordare, medii și acte necesare pentru dosarul social.</p>
+                    <p>Criterii de acordare, medii, cuantumuri și acte necesare pentru dosarul social.</p>
                 </div>
                 <div class="doc-action">
                     <i class="fas fa-download"></i>
                 </div>
             </a>
 
-            <a href="link-catre-regulament-camine.pdf" target="_blank" class="doc-card">
+            <a href="https://usamv.ro/wp-content/uploads/2026/07/RAPS_2026_2027_FINAL.pdf" target="_blank" class="doc-card">
                 <div class="doc-icon">
-                    <i class="fas fa-home"></i>
+                    <i class="fas fa-book-open"></i>
                 </div>
                 <div class="doc-content">
-                    <h4>Regulament Cămine</h4>
-                    <p>Reguli de cazare, drepturi și obligații în campusul studențesc.</p>
+                    <h4>Activitatea Profesională (RAPS)</h4>
+                    <p>Regulamentul oficial: credite ECTS, examene, reexaminări și parcurs universitar.</p>
                 </div>
                 <div class="doc-action">
                     <i class="fas fa-download"></i>
                 </div>
             </a>
 
-            <a href="link-catre-statutul-studentului.pdf" target="_blank" class="doc-card">
+            <a href="https://usamv.ro/wp-content/uploads/2024/11/7eee3f07-c8fc-4f8f-88ca-2833c6b02b0f.pdf" target="_blank" class="doc-card">
                 <div class="doc-icon">
                     <i class="fas fa-balance-scale"></i>
                 </div>
                 <div class="doc-content">
                     <h4>Codul Drepturilor Studentului</h4>
-                    <p>Tot ce trebuie să știi despre drepturile și obligațiile tale la USAMV.</p>
+                    <p>Statutul complet, drepturile academice, obligațiile și normele de conduită.</p>
                 </div>
                 <div class="doc-action">
                     <i class="fas fa-download"></i>
                 </div>
             </a>
 
-            <a href="link-catre-statut-asociatie.pdf" target="_blank" class="doc-card">
+            <a href="https://usamv.ro/wp-content/uploads/2025/07/Carta-USAMVB_2025.pdf" target="_blank" class="doc-card">
                 <div class="doc-icon">
-                    <i class="fas fa-file-signature"></i>
+                    <i class="fas fa-university"></i>
                 </div>
                 <div class="doc-content">
-                    <h4>Statutul AS-USAMV</h4>
-                    <p>Modul de organizare și funcționare, incluzând modificările recente ale articolelor (cu numerotarea păstrată).</p>
+                    <h4>Carta USAMV București</h4>
+                    <p>Documentul fundamental care reglementează funcționarea și autonomia universității.</p>
                 </div>
                 <div class="doc-action">
                     <i class="fas fa-download"></i>
@@ -769,7 +783,7 @@
                 </div>
             </div>
 
-            <div class="bento-box event-bento">
+            <div class="event-bento bento-box">
                 <div class="event-date-mini">
                     <span>7-10</span>
                     <small>Mai</small>
@@ -780,7 +794,7 @@
                 </div>
             </div>
 
-            <div class="bento-box event-bento">
+            <div class="event-bento bento-box">
                 <div class="event-date-mini">
                     <span>17</span>
                     <small>Mai</small>
@@ -799,12 +813,12 @@
             <p>O privire rapidă asupra atmosferei din campus și evenimentelor noastre.</p>
         </div>
         <div class="aligned-gallery">
-            <div class="gallery-item"><img src="mirea volei.webp" alt="Echipa de volei USAMV"></div>
-            <div class="gallery-item"><img src="parada.webp" alt="Congresul studențesc"></div>
-            <div class="gallery-item"><img src="mara barca.webp" alt="Balul Bobocilor"></div>
-            <div class="gallery-item"><img src="maini.webp" alt="Voluntariat și echipă"></div>
-            <div class="gallery-item"><img src="foto vpmv.webp" alt="Reprezentare studențească"></div>
-            <div class="gallery-item"><img src="foto interne.webp" alt="Membri asociație"></div>
+            <div class="gallery-item"><img src="mirea volei.webp" alt="Echipa de volei USAMV" loading="lazy" decoding="async"></div>
+            <div class="gallery-item"><img src="grup-tb.jpeg" alt="Teambuilding Asociație" loading="lazy" decoding="async"></div>
+            <div class="gallery-item"><img src="mara barca.webp" alt="Activități studențești" loading="lazy" decoding="async"></div>
+            <div class="gallery-item"><img src="maini.webp" alt="Voluntariat și echipă" loading="lazy" decoding="async"></div>
+            <div class="gallery-item"><img src="bal scena.webp" alt="Balul Bobocilor" loading="lazy" decoding="async"></div>
+            <div class="gallery-item"><img src="grup-tb.jpeg" alt="Comunitatea USAMV" loading="lazy" decoding="async"></div>
         </div>
     </section>
 
@@ -814,9 +828,9 @@
                 <h3>AS-USAMV</h3>
                 <p>Vocea studenților din Universitatea de Științe Agronomice și Medicină Veterinară București.</p>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/share/1HAEsCK745/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/as_usamvb?igsh=OGV4enJ4Y2dya3ph&utm_source=qr"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@asusamvb?_r=1&_t=ZN-9430d0W7X4I"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/share/1HAEsCK745/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/as_usamvb?igsh=OGV4enJ4Y2dya3ph&utm_source=qr" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@asusamvb?_r=1&_t=ZN-9430d0W7X4I" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
 
@@ -904,7 +918,7 @@
                     globalHeader.style.transform = 'translateY(0)'; 
                 }
                 lastScrollY = window.scrollY;
-            });
+            }, { passive: true });
 
             const mobileBtn = document.getElementById('mobileMenuBtn');
             const mobileNav = document.getElementById('assocNav');
@@ -932,20 +946,19 @@
                 });
             });
 
+            /* ================= Carusel Logic Optimizat ================= */
             const track = document.getElementById('track');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
-            const carouselWrapper = document.querySelector('.carousel-wrapper');
+            const carouselViewport = document.querySelector('.carousel-viewport');
             let isAnimating = false;
 
-            function getVisibleCards() {
-                const viewport = document.querySelector('.carousel-viewport');
+            function getVisibleCount() {
                 const firstCard = track.children[0];
+                if (!carouselViewport || !firstCard) return 1;
                 
-                if (!viewport || !firstCard) return 1;
-                
-                const viewportWidth = viewport.getBoundingClientRect().width;
-                const cardWidth = firstCard.getBoundingClientRect().width;
+                const viewportWidth = carouselViewport.offsetWidth;
+                const cardWidth = firstCard.offsetWidth;
                 const gap = 24;
                 
                 return Math.max(1, Math.round(viewportWidth / (cardWidth + gap)));
@@ -955,13 +968,13 @@
                 if (isAnimating || !track || track.children.length === 0) return;
                 isAnimating = true;
 
-                const visibleCards = getVisibleCards(); 
+                const count = getVisibleCount(); 
                 const firstCard = track.children[0];
-                const cardWidth = firstCard.getBoundingClientRect().width;
+                const cardWidth = firstCard.offsetWidth;
                 const gap = 24; 
-                const moveDistance = (cardWidth + gap) * visibleCards;
+                const moveDistance = (cardWidth + gap) * count;
 
-                track.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+                track.style.transition = 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)';
                 track.style.transform = `translate3d(-${moveDistance}px, 0, 0)`;
 
                 track.addEventListener('transitionend', function handler() {
@@ -969,7 +982,7 @@
                     track.style.transition = 'none'; 
                     track.style.transform = 'translate3d(0, 0, 0)'; 
                     
-                    for (let i = 0; i < visibleCards; i++) {
+                    for (let i = 0; i < count; i++) {
                         if (track.children.length > 0) {
                             track.appendChild(track.children[0]);
                         }
@@ -982,13 +995,13 @@
                 if (isAnimating || !track || track.children.length === 0) return;
                 isAnimating = true;
 
-                const visibleCards = getVisibleCards(); 
+                const count = getVisibleCount(); 
                 const firstCard = track.children[0];
-                const cardWidth = firstCard.getBoundingClientRect().width;
+                const cardWidth = firstCard.offsetWidth;
                 const gap = 24; 
-                const moveDistance = (cardWidth + gap) * visibleCards;
+                const moveDistance = (cardWidth + gap) * count;
 
-                for (let i = 0; i < visibleCards; i++) {
+                for (let i = 0; i < count; i++) {
                     track.insertBefore(track.lastElementChild, track.firstElementChild);
                 }
 
@@ -997,7 +1010,7 @@
 
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
-                        track.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+                        track.style.transition = 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)';
                         track.style.transform = 'translate3d(0, 0, 0)';
 
                         track.addEventListener('transitionend', function handler() {
@@ -1008,7 +1021,7 @@
                 });
             }
 
-            if(nextBtn && prevBtn) {
+            if (nextBtn && prevBtn) {
                 nextBtn.addEventListener('click', moveNext);
                 prevBtn.addEventListener('click', movePrev);
             }
@@ -1016,20 +1029,16 @@
             let touchStartX = 0;
             let touchEndX = 0;
 
-            if(carouselWrapper) {
-                carouselWrapper.addEventListener('touchstart', e => {
+            if (carouselViewport) {
+                carouselViewport.addEventListener('touchstart', e => {
                     touchStartX = e.changedTouches[0].screenX;
-                }, {passive: true});
+                }, { passive: true });
 
-                carouselWrapper.addEventListener('touchend', e => {
+                carouselViewport.addEventListener('touchend', e => {
                     touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                }, {passive: true});
-            }
-
-            function handleSwipe() {
-                if (touchEndX < touchStartX - 50) moveNext(); 
-                if (touchEndX > touchStartX + 50) movePrev(); 
+                    if (touchEndX < touchStartX - 50) moveNext(); 
+                    if (touchEndX > touchStartX + 50) movePrev(); 
+                }, { passive: true });
             }
         });
     </script>
